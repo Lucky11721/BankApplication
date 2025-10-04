@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f9;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        .form-section {
+            display: none;
+        }
+        .form-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+
+<div class="container mx-auto">
+    <header class="text-center mb-12">
+        <h1 class="text-5xl font-bold text-gray-800">Bank Application</h1>
+        <p class="text-lg text-gray-600 mt-2">Manage your accounts and perform banking operations</p>
+    </header>
+
+    <div class="card p-8">
+        <nav class="flex flex-wrap justify-center space-x-2 md:space-x-4 mb-8">
+            <button onclick="showSection('createAccount')" class="px-4 py-2 text-sm font-medium rounded-full focus:outline-none transition-all duration-300 bg-blue-500 text-white hover:bg-blue-600">Create Account</button>
+            <button onclick="showSection('balanceEnquiry')" class="px-4 py-2 text-sm font-medium rounded-full focus:outline-none transition-all duration-300 bg-blue-500 text-white hover:bg-blue-600">Balance Enquiry</button>
+            <button onclick="showSection('nameEnquiry')" class="px-4 py-2 text-sm font-medium rounded-full focus:outline-none transition-all duration-300 bg-blue-500 text-white hover:bg-blue-600">Name Enquiry</button>
+            <button onclick="showSection('creditAmount')" class="px-4 py-2 text-sm font-medium rounded-full focus:outline-none transition-all duration-300 bg-blue-500 text-white hover:bg-blue-600">Credit Amount</button>
+            <button onclick="showSection('debitAmount')" class="px-4 py-2 text-sm font-medium rounded-full focus:outline-none transition-all duration-300 bg-blue-500 text-white hover:bg-blue-600">Debit Amount</button>
+        </nav>
+
+        <div id="createAccount" class="form-section active">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Create Account</h2>
+            <form id="createAccountForm">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <input type="text" id="firstName" placeholder="First Name" class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <input type="text" id="lastName" placeholder="Last Name" class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <input type="text" id="gender" placeholder="Gender" class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <input type="email" id="email" placeholder="Email" class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <input type="text" id="phoneNumber" placeholder="Phone Number" class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <input type="text" id="address" placeholder="Address" class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </div>
+                <button type="submit" class="w-full mt-6 bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Create Account</button>
+            </form>
+        </div>
+
+        <div id="balanceEnquiry" class="form-section">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Balance Enquiry</h2>
+            <form id="balanceEnquiryForm">
+                <input type="text" id="balanceEnquiryAccountNumber" placeholder="Account Number" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4">
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Enquire Balance</button>
+            </form>
+        </div>
+
+        <div id="nameEnquiry" class="form-section">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Name Enquiry</h2>
+            <form id="nameEnquiryForm">
+                <input type="text" id="nameEnquiryAccountNumber" placeholder="Account Number" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4">
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Enquire Name</button>
+            </form>
+        </div>
+
+        <div id="creditAmount" class="form-section">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Credit Amount</h2>
+            <form id="creditAmountForm">
+                <input type="text" id="creditAccountNumber" placeholder="Account Number" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4">
+                <input type="number" id="creditAmountValue" placeholder="Amount to Credit" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4">
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Credit</button>
+            </form>
+        </div>
+
+        <div id="debitAmount" class="form-section">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Debit Amount</h2>
+            <form id="debitAmountForm">
+                <input type="text" id="debitAccountNumber" placeholder="Account Number" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4">
+                <input type="number" id="debitAmountValue" placeholder="Amount to Debit" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4">
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Debit</button>
+            </form>
+        </div>
+
+        <div id="responseContainer" class="mt-8 p-6 rounded-lg bg-gray-50 border border-gray-200 hidden">
+            <pre id="responseOutput" class="text-sm text-gray-700 whitespace-pre-wrap"></pre>
+        </div>
+
+        <div id="messageBox" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden">
+            <div class="bg-white p-8 rounded-lg shadow-xl text-center">
+                <p id="messageText" class="text-gray-800 font-medium mb-4"></p>
+                <button onclick="hideMessageBox()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const BASE_URL = 'http://localhost:8080/api/v1/user';
+
+    function showMessageBox(message) {
+        document.getElementById('messageText').innerText = message;
+        document.getElementById('messageBox').classList.remove('hidden');
+    }
+
+    function hideMessageBox() {
+        document.getElementById('messageBox').classList.add('hidden');
+    }
+
+    function showSection(sectionId) {
+        document.querySelectorAll('.form-section').forEach(section => {
+            section.classList.remove('active');
+        });
+        document.getElementById(sectionId).classList.add('active');
+        document.getElementById('responseContainer').classList.add('hidden');
+    }
+
+    async function handleSubmit(event, endpoint, method, getBody) {
+        event.preventDefault();
+        const responseContainer = document.getElementById('responseContainer');
+        const responseOutput = document.getElementById('responseOutput');
+        responseOutput.textContent = 'Loading...';
+        responseContainer.classList.remove('hidden');
+
+        const options = {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        if (getBody) {
+            options.body = JSON.stringify(getBody());
+        }
+
+        // Corrected URL building to handle the base path correctly
+        const url = endpoint ? `${BASE_URL}/${endpoint}` : BASE_URL;
+
+        try {
+            const response = await fetch(url, options);
+            const data = await response.json();
+            responseOutput.textContent = JSON.stringify(data, null, 2);
+            showMessageBox("Operation Successful!");
+        } catch (error) {
+            console.error("Fetch Error:", error);
+            responseOutput.textContent = `Error: ${error.message}. Check the browser console for details and ensure your Spring Boot application is running.`;
+            showMessageBox("An error occurred. See console for details.");
+        }
+    }
+
+  document.getElementById('createAccountForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const gender = document.getElementById('gender').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phoneNumber = document.getElementById('phoneNumber').value.trim();
+    const address = document.getElementById('address').value.trim();
+
+    if (!firstName || !lastName) {
+        showMessageBox("First Name and Last Name are required.");
+        return;
+    }
+
+    const payload = {
+        firstName: firstName,
+        lastName: lastName,
+        gender: gender,
+        email: email,
+        phoneNumber: phoneNumber,
+        address: address
+    };
+
+    handleSubmit(e, '', 'POST', () => payload);
+});
+
+
+    document.getElementById('balanceEnquiryForm').addEventListener('submit', (e) => {
+        handleSubmit(e, `balanceEnquiry`, 'GET', () => {
+            return { accountNumber: document.getElementById('balanceEnquiryAccountNumber').value };
+        });
+    });
+
+    document.getElementById('nameEnquiryForm').addEventListener('submit', (e) => {
+        handleSubmit(e, `nameEnquiry`, 'GET', () => {
+            return { accountNumber: document.getElementById('nameEnquiryAccountNumber').value };
+        });
+    });
+
+    document.getElementById('creditAmountForm').addEventListener('submit', (e) => {
+        handleSubmit(e, 'Credit', 'POST', () => {
+            return {
+                accountNumber: document.getElementById('creditAccountNumber').value,
+                amount: document.getElementById('creditAmountValue').value
+            };
+        });
+    });
+
+    document.getElementById('debitAmountForm').addEventListener('submit', (e) => {
+        handleSubmit(e, 'Debit', 'POST', () => {
+            return {
+                accountNumber: document.getElementById('debitAccountNumber').value,
+                amount: document.getElementById('debitAmountValue').value
+            };
+        });
+    });
+</script>
+
+</body>
+</html>
