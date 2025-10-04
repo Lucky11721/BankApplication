@@ -73,7 +73,7 @@ to explore and test all available REST APIs using Swagger UI.
 
 Clone the repository
 
-git clone https://github.com/yourusername/bank-application.git
+git clone https://github.com/Lucky1172/bank-application.git
 cd bank-application
 
 
