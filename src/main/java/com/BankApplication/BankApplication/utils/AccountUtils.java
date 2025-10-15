@@ -29,6 +29,9 @@ public static  final String Credit_succes_mesage = "Amount successfully credited
 
     public static final String Insufficient_funds_code = "007";
     public static  final String Insufficient_fund_message = "Transaction rejected due to insufficient funds";
+    public  static final String Transfer_Succesfull_code = "008";
+    public static final String Trans_Succesfull_message = "Amount Succesfully transferd from sender account to receiver account";
+
 
 
     public static String generateAccountNumber(){
